@@ -1,0 +1,15 @@
+
+<div class="container">
+  <%= form_with(model: @room, remote: true, class: "d-flex" ) do |f| %>
+  <form class="row g-3">
+    <div class="col-auto">
+
+      <%= f.text_field :name, class: "form-control", autocomplete: 'off' %>
+    </div>
+
+    <div class="col-auto">
+      <%= f.button "Create Room", type: :submit, data: { disable_with: false }, class: "btn btn-primary" %>  
+    </div>
+  </form>
+  <% end %>
+</div>
