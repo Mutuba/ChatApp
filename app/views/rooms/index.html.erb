@@ -1,7 +1,14 @@
 <div class="container">
+  <div class="row header">
+    <div class="col-10">
+      <h5> Hi <%= @current_user.username %> </h5>
+    </div>
+    <div class="col-2">
+      <%= link_to 'Sign Out', signout_path,  :method => :delete %>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-2">
-      <h5> Hi <%= @current_user.username %> </h5>
       <h4> Users </h4>
       <div>
         <%= turbo_stream_from "users" %>
@@ -22,8 +29,8 @@
   <div class="col-md-10 bg-dark">
     <div class="col-md-10 bg-dark text-light">
       <% if @single_room %>
-        <h4 class="text-center"> <%= @single_room.name %> </h4>
-        <%= turbo_stream_from 4 %>
+        <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
+        <%= turbo_stream_from 'boss' %>
         <div id="messages">
           <%= render @messages %>
         </div>
