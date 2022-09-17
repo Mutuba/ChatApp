@@ -1,0 +1,12 @@
+<div>
+  <div class="form-group msg-form">
+    <%= form_with(model: [@single_room ,@message], remote: true, class: "d-flex" ) do |f| %>
+      <form class="row g-3">
+        <div class="col-auto">
+          <%= f.text_field :content, id: 'chat-text', class: "form-control msg-content", autocomplete: 'off' %>
+        </div>
+        <%= f.submit data: { disable_with: false }, class: "btn btn-primary" %>
+      </form>
+    <% end %>
+  </div>
+</div>
