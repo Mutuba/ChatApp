@@ -8,7 +8,10 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.create(name: params["room"]["name"])
+    @room = Room.create(name: params['room']['name'])
+    respond_to do |format|
+      format.turbo_stream { redirect_to new_room_path }
+    end
   end
 
   def show
@@ -20,8 +23,6 @@ class RoomsController < ApplicationController
     @message = Message.new
     @messages = @single_room.messages
 
-  
-    render "index"
+    render 'index'
   end
-
 end
